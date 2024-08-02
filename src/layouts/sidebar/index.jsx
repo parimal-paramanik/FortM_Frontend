@@ -70,7 +70,7 @@ const Sidebar = () => {
     {
       name: "build",
       icon: RiBuilding3Line,
-      menus: ["auth", "app settings", "stroage", "hosting"],
+      menus: ["auth", "app settings"],
     },
     {
       name: "analytics",
@@ -107,29 +107,36 @@ const Sidebar = () => {
 
         <div className="flex flex-col  h-full">
           <ul className="whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1  font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100   md:h-[68%] h-[70%]">
+          <li>
+              <NavLink to={"/authentication"} className="link">
+                <BsPerson size={23} className="min-w-max" />
+                Authentication
+              </NavLink>
+            </li>
+            
+            <li>
+              <NavLink to={"/create_course"} className="link">
+                <HiOutlineDatabase size={23} className="min-w-max" />
+                Create Course
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/create_member"} className="link">
+                <HiOutlineDatabase size={23} className="min-w-max" />
+                Create Member 
+              </NavLink>
+            </li>
+
             <li>
               <NavLink to={"/"} className="link">
                 <AiOutlineAppstore size={23} className="min-w-max" />
                 All Apps
               </NavLink>
             </li>
-            <li>
-              <NavLink to={"/authentication"} className="link">
-                <BsPerson size={23} className="min-w-max" />
-                Authentication
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/stroage"} className="link">
-                <HiOutlineDatabase size={23} className="min-w-max" />
-                Stroage
-              </NavLink>
-            </li>
-
             {(open || isTabletMid) && (
               <div className="border-y py-5 border-slate-300 ">
                 <small className="pl-3 text-slate-500 inline-block mb-2">
-                  Product categories
+                  Member section
                 </small>
                 {subMenusList?.map((menu) => (
                   <div key={menu.name} className="flex flex-col gap-1">
@@ -145,19 +152,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
           </ul>
-          {open && (
-            <div className="flex-1 text-sm z-50  max-h-48 my-auto  whitespace-pre   w-full  font-medium  ">
-              <div className="flex border-y border-slate-300 p-4 items-center justify-between">
-                <div>
-                  <p>Spark</p>
-                  <small>No-cost $0/month</small>
-                </div>
-                <p className="text-teal-500 py-1.5 px-3 text-xs bg-teal-50 rounded-xl">
-                  Upgrade
-                </p>
-              </div>
-            </div>
-          )}
+          
         </div>
         <motion.div
           onClick={() => {
