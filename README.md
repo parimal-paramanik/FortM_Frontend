@@ -16,9 +16,9 @@ This project is a full stack  application for an exam system built using React.j
 ## Getting Started
 
 1. Clone the repository:
-   ```bash
-1. git clone https://github.com/parimal-paramanik/FortM_Backend.git
-   cd FortM_Backend
+   ```bash    
+1. git clone https://github.com/parimal-paramanik/FortM_Frontend.git
+   cd FortM_Frontend
 
 2. **Install Dependencies:** Navigate to the project directory and run `npm install` to install the required dependencies.
 
