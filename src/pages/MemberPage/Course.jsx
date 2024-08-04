@@ -152,7 +152,7 @@ const Course = () => {
         <div className="flex flex-col md:flex-row items-start min-h-full p-4">
           <div className="w-full md:w-1/2 p-4 bg-white rounded-lg shadow-md mb-6 md:mb-0">
             <h1 className="text-2xl font-bold mb-4 text-center">Courses and Exams</h1>
-            {courses.map((course) => (
+            { courses && courses.map((course) => (
               <div key={course._id} className="mb-6">
                 <h2 className="text-xl font-semibold mb-2">Course: {course.courseName.substring(0, 10)}{course.courseName.length > 10 ? '...' : ''}</h2>
                 <p className="text-sm text-gray-600 mb-4">Desc: {course.description.substring(0, 10)}{course.description.length > 10 ? '...' : ''}</p>

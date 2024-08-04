@@ -18,7 +18,7 @@ const Scores = () => {
           },
         });
 
-        console.log("data.data", response)
+        // console.log("data.data", response)
         
         setScores(response.data.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const Scores = () => {
       <h1 className="text-sm font-bold mb-4 text-blue-500">Expand Exam to see more details</h1>
       {
         loading ? "loading..." : (<div className="w-full md:w-3/4">
-            {scores.length > 0  ? (
+            { scores && scores.length > 0  ? (
               scores.map((score) => (
                 <div
                   key={score._id}
