@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const CreateCourse = () => {
+  const { token } = useSelector((state) => state.auth.auth);
   const [formData, setFormData] = useState({
     courseName: '',
     description: '',
@@ -11,6 +13,7 @@ const CreateCourse = () => {
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [loading,setLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,12 +36,21 @@ const CreateCourse = () => {
     }
 
     try {
-      const response = await axios.post('/api/createCourse', formData, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      setLoading(true)
+      const response = await axios.post(`http://localhost:8080/createCourse`, formData, {
+        headers: { Authorization: `${token}` },
       });
-      setSuccess(response.data.message);
+      console.log("response", response)
+
+      if(response.status === 200){
+        setSuccess(response.data.message);
+      }
     } catch (error) {
-      setError('Error creating course');
+      console.log("error",error)
+      setError(error.response.data.error);
+    }
+    finally{
+      setLoading(false)
     }
   };
 
@@ -76,7 +88,7 @@ const CreateCourse = () => {
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            Add Course
+            {loading ? "loading..": "Add Course"}
           </button>
         </form>
         <button

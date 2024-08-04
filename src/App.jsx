@@ -14,6 +14,7 @@ import Data from "./pages/Data";
 import Course from "./pages/MemberPage/Course";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Scores from "./pages/MemberPage/Yourscore";
 
 import { Provider } from "react-redux";
 import store from "./Redux/store";
@@ -35,9 +36,9 @@ const App = () => {
         <Route path="/courselisting" element={<AllApps />} />
         <Route path="/create_member" element={<CreteMember />} />
         <Route path="/create_course" element={<CreateCourse />} />
-        {/* <Route path="/settings" element={<Settings />} /> */}
         <Route path="/data" element={<Data />} />
         <Route path="/member/course" element={<Course />} />
+        <Route path="/member/score" element={<Scores/>} />
         <Route path="/course/addExam" element={<AddExam />} />
         <Route path="/exams/addquestion" element={<AddQuestion />} />
 

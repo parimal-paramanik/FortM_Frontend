@@ -16,6 +16,7 @@ import { MdMenu } from "react-icons/md";
 import { NavLink, useLocation, useRoutes } from "react-router-dom";
 import { MdDataUsage } from "react-icons/md";
 import { FaBookReader } from "react-icons/fa"
+import { MdCreditScore } from "react-icons/md";
 const Sidebar = () => {
   let isTabletMid = useMediaQuery({ query: "(max-width: 768px)" });
   const [open, setOpen] = useState(isTabletMid ? false : true);
@@ -148,12 +149,13 @@ const Sidebar = () => {
                 Member Course
               </NavLink>
             </li>
-            {/* <li>
-              <NavLink to={"/settings"} className="link mt-3">
-                <SlSettings size={23} className="min-w-max " />
-                Settings
+            <li>
+            
+              <NavLink to={"/member/score"} className="link mt-3">
+                <MdCreditScore size={23} className="min-w-max " />
+                Your Score
               </NavLink>
-            </li> */}
+            </li>
           </ul>
           
         </div>
